@@ -1,0 +1,20 @@
+/* navbar background color and text color */
+.navbar {
+  background-color: #343a40;
+  color: gray;
+}
+
+/* navbar links color and hover effect */
+.navbar-nav .nav-link {
+  color: gray;
+}
+.navbar-nav .nav-link:hover {
+  color: lightblue;
+}
+.navbar-toggler:hover {
+   background-color: lightblue;
+}
+/* add this to your base.css file */
+.product-card{
+  background-color: lightblue;
+}

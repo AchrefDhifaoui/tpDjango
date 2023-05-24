@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<title>
+{% block title %} {% endblock %}
+</title>
+<link rel='stylesheet' type='text/css' media='screen'
+href="{% static 'css/base.css'%}">
+<script defer src="/js/base.js"></script>
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% block styles %} {% endblock %}
+</head>
+<body>
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <a class="navbar-brand" href="{% url 'index' %}">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+    <path d="M0 0v1.063h1.938l.874 3.627L3.938 2.25h7.407L14.19 6.69l.863 3.562H3.625l-.374 1.5h9.563V16h1.5v-1.75h1.187L16 9.812v-.375L15.187 8.25H3.938l-.312-1.5h9.063V5.25H4.876L4.002 1.69.876 1.125z"/>
+    <path d="M5.25 13.438a1.125 1.125 0 1 1-2.25 0 1.125 1.125 0 0 1 2.25 0zM12.938 13.438a1.125 1.125 0 1 1-2.25 0 1.125 1.125 0 0 1 2.25 0z"/>
+  </svg>
+  Mon magasin
+</a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+        <div class="collapse navbar-collapse" >
+           <ul class="navbar-nav">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'mesProduits' %}">Catalogue <span class="sr-only">(current)</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'fournisseur_list' %}">Fournisseur</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'mesProduits' %}">Produit</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Administration</a>
+  </li>
+</ul>
+            <ul class="navbar-nav ml-auto">
+{% if user.is_authenticated %}
+<li class="nav-item active">
+<a class="nav-link" href="#">{{user}},</a>
+</li>
+<li class="nav-item active">
+<a class="nav-link" href="{% url 'logout' %}">Déconnexion</a>
+</li>
+{% else %}
+<li class="nav-item active">
+<a class="nav-link" href="{% url 'login' %}">Connexion</a>
+</li>
+<li class="nav-item active">
+<a class="nav-link" href="{% url 'register' %}">Inscription</a>
+</li>
+{% endif %}
+</ul>
+        </div>
+    </nav>
+{% endblock %}
+{% block content %}
+{% endblock %}
+</body>
+</html>

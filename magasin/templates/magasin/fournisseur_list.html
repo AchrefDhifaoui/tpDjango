@@ -1,0 +1,12 @@
+{% extends 'magasin/base.html' %}
+
+{% block title %}Fournisseur List{% endblock %}
+
+{% block content %}
+  <h1>Fournisseurs</h1>
+  <ul>
+    {% for fournisseur in fournisseurs %}
+      <li>{{ fournisseur.nom }} - {{ fournisseur.adresse }} - {{ fournisseur.email }} - {{ fournisseur.telephone }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
